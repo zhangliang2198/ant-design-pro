@@ -1,24 +1,16 @@
 import dynamic from 'dva/dynamic';
 
-// models
-import UserModel from '../models/user';
-import RuleModel from '../models/rule';
-
-// components
-import BasicLayout from '../layouts/BasicLayout';
-import TableList from '../routes/List/TableList';
-
 // wrapper of dynamic
-const dy = (app, models, component) => dynamic({
+const dynamicWrapper = (app, models, component) => dynamic({
   app,
-  models: () => models,
+  models: () => models.map(m => import(`../models/${m}.js`)),
   component: () => component,
 });
 
 // nav data
 export const getNavData = app => [
   {
-    component: dy(app, [UserModel], BasicLayout),
+    component: dynamicWrapper(app, ['user'], import('../layouts/BasicLayout')),
     layout: 'BasicLayout',
     name: '首页', // for breadcrumb
     path: '/',
@@ -26,8 +18,9 @@ export const getNavData = app => [
       {
         name: '查询表格',
         path: 'table-list',
-        component: dy(app, [RuleModel], TableList),
+        component: dynamicWrapper(app, ['rule'], import('../routes/List/TableList')),
       },
     ],
   },
 ];
+
