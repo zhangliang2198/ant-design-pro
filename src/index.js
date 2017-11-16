@@ -1,13 +1,13 @@
 import dva from 'dva';
 import 'moment/locale/zh-cn';
 import 'ant-design-pro/dist/ant-design-pro.css';
-import browserHistory from 'history/createBrowserHistory';
+// import browserHistory from 'history/createBrowserHistory';
 import './polyfill';
 import './index.less';
 
 // 1. Initialize
 const app = dva({
-  history: browserHistory(),
+  // history: browserHistory(),
 });
 
 // 2. Plugins
