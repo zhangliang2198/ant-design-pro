@@ -1,8 +1,8 @@
 import dva from 'dva';
 import 'moment/locale/zh-cn';
+import 'ant-design-pro/dist/ant-design-pro.css';
 import browserHistory from 'history/createBrowserHistory';
 import './polyfill';
-import './g2';
 import './index.less';
 
 // 1. Initialize

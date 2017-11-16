@@ -1,5 +1,5 @@
 {
-  "name": "ant-design-pro",
+  "name": "ant-design-pro-browser-history-simple",
   "version": "0.2.3-rc.1",
   "description": "An out-of-box UI solution for enterprise applications",
   "private": true,
@@ -19,6 +19,7 @@
     "test:all": "node ./tests/run-tests.js"
   },
   "dependencies": {
+    "ant-design-pro": "^0.2.3-rc.1",
     "antd": "^3.0.0-beta.1",
     "babel-runtime": "^6.9.2",
     "classnames": "^2.2.5",

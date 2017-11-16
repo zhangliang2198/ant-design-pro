@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { Layout, Menu, Icon, Avatar, Dropdown, Tag, message, Spin } from 'antd';
 import DocumentTitle from 'react-document-title';
+
 import { connect } from 'dva';
 import { Link, Route, Redirect, Switch } from 'dva/router';
+import { Layout, Menu, Icon, Avatar, Dropdown, Tag, message, Spin } from 'antd';
+
+import HeaderSearch from 'ant-design-pro/lib/HeaderSearch';
+import NoticeIcon from 'ant-design-pro/lib/NoticeIcon';
+import GlobalFooter from 'ant-design-pro/lib/GlobalFooter';
+
 import moment from 'moment';
 import groupBy from 'lodash/groupBy';
-import { ContainerQuery } from 'react-container-query';
 import classNames from 'classnames';
-import HeaderSearch from '../components/HeaderSearch';
-import NoticeIcon from '../components/NoticeIcon';
-import GlobalFooter from '../components/GlobalFooter';
-import NotFound from '../routes/Exception/404';
+import { ContainerQuery } from 'react-container-query';
+
 import styles from './BasicLayout.less';
 
 const { Header, Sider, Content } = Layout;
@@ -355,8 +358,7 @@ class BasicLayout extends React.PureComponent {
                   )
                 )
               }
-              <Redirect exact from="/" to="/dashboard/analysis" />
-              <Route component={NotFound} />
+              <Redirect exact from="/" to="/table-list" />
             </Switch>
             <GlobalFooter
               links={[{
