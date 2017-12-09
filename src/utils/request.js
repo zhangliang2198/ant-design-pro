@@ -1,7 +1,7 @@
 import fetch from 'dva/fetch';
 import {notification} from 'antd';
 
-const baseUrl = 'http://localhost:8008';
+const baseUrl = 'http://localhost:8018';
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
