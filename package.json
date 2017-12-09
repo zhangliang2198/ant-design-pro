@@ -3,6 +3,7 @@
   "version": "0.3.0",
   "description": "An out-of-box UI solution for enterprise applications",
   "private": true,
+  "main": "./main.js",
   "scripts": {
     "precommit": "npm run lint-staged",
     "start": "roadhog server",
@@ -19,6 +20,7 @@
     "test:all": "node ./tests/run-tests.js"
   },
   "dependencies": {
+    "electron": "^1.7.9",
     "antd": "^3.0.0",
     "babel-polyfill": "^6.26.0",
     "babel-runtime": "^6.9.2",
