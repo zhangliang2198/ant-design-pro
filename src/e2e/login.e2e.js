@@ -4,7 +4,7 @@ describe('Login', () => {
   let page;
   beforeEach(() => {
     page = Nightmare();
-    page.goto('http://localhost:8000/#/user/login');
+    page.goto('http://localhost:8008/#/user/login');
   });
 
   it('should login with failure', async () => {

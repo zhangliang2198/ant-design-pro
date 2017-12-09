@@ -9,7 +9,7 @@ let win
 function createWindow() {
   // 创建浏览器窗口。
   win = new BrowserWindow({width: 1400, height: 1000})
-  const loadUrl = isDev ? 'http://localhost:8000' : url.format({
+  const loadUrl = isDev ? 'http://localhost:8008' : url.format({
     pathname: path.join(__dirname, 'dist/index.html'),
     protocol: 'file:',
     slashes: true

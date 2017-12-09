@@ -1,5 +1,7 @@
 import fetch from 'dva/fetch';
-import { notification } from 'antd';
+import {notification} from 'antd';
+
+const baseUrl = 'http://localhost:8008';
 
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
@@ -25,7 +27,7 @@ export default function request(url, options) {
   const defaultOptions = {
     credentials: 'include',
   };
-  const newOptions = { ...defaultOptions, ...options };
+  const newOptions = {...defaultOptions, ...options};
   if (newOptions.method === 'POST' || newOptions.method === 'PUT') {
     newOptions.headers = {
       Accept: 'application/json',
@@ -35,22 +37,22 @@ export default function request(url, options) {
     newOptions.body = JSON.stringify(newOptions.body);
   }
 
-  return fetch(url, newOptions)
-    .then(checkStatus)
-    .then(response => response.json())
-    .catch((error) => {
-      if (error.code) {
-        notification.error({
-          message: error.name,
-          description: error.message,
-        });
-      }
-      if ('stack' in error && 'message' in error) {
-        notification.error({
-          message: `请求错误: ${url}`,
-          description: error.message,
-        });
-      }
-      return error;
-    });
+  return fetch(baseUrl + url, newOptions).
+      then(checkStatus).
+      then(response => response.json()).
+      catch((error) => {
+        if (error.code) {
+          notification.error({
+            message: error.name,
+            description: error.message,
+          });
+        }
+        if ('stack' in error && 'message' in error) {
+          notification.error({
+            message: `请求错误: ${url}`,
+            description: error.message,
+          });
+        }
+        return error;
+      });
 }

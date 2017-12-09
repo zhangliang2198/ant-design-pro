@@ -28,6 +28,6 @@ script:
     elif [ "$TEST_TYPE" = test-dist ]; then
       npm run site
       mv dist/* ./
-      php -S localhost:8000 &
+      php -S localhost:8008 &
       npm test .e2e.js
     fi
